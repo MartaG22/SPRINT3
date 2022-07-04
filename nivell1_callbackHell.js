@@ -1,6 +1,7 @@
 // https://www.freecodecamp.org/espanol/news/tutorial-async-await-de-javascript-aprende-callbacks-promesas-y-async-await-en-js-haciendo-helados/
 // https://www.youtube.com/watch?v=WYVOvwTZ7Bo
 //! resolver callback hell escribir texto al reves
+// https://www.youtube.com/watch?v=IJNaoJokDco  BIEN EXPLICADO - CALLBACKS y ASYNAWAIT
 
 const {
     readdir,
