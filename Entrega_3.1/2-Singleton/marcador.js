@@ -1,50 +1,30 @@
 // youtube.com/watch?v=Z7Z-PJEIEs  singletton
 
+// PATRÓN SINGLETON:
+
+class Marcador {
+    static instancia;
+    nom = '';
+
+    constructor(joc, jugador) {
+
+        if (!!Marcador.instancia) {
+            return Marcador.instancia;
+
+        }
+
+        Marcador.instancia = this;
+        this.joc = joc;
+        this.jugador = jugador;
+    }
+}
 
 
-
-const {
-    readdir,
-    readFile,
-    writeFile
-} = require("fs");
-const {
-    join
-} = require("path");
-const inbox = join(__dirname, "inbox");
-const outbox = join(__dirname, "outbox");
-
-const reverseText = str =>
-    str
-        .split("")
-        .reverse()
-        .join("");
-
-// Read and reverse contents of text files in a directory
-
-readdir(inbox) // (error, files) => {
-    .then((files) => files.forEach(file => {
-    readFile(join(inbox, file), "utf8")  //, (error, data) => {
-        .catch(() => console.log("Error: File error"))
-        .then(data => writeFile(join(outbox, file), reverseText(data)))
-        .catch(() => console.log("Error: File could not be saved!"))
-        .then(() => console.log(`${file} was successfully saved in the outbox!`))
-    // if (error) return console.log("Error: Folder inaccessible");
-}).catch (() => console.log("Error: Folder inaccessible"));
+const instancia1 = new Marcador('domino', 'Pepito');
+// const instancia2 = new Marcador('parchis', 'Juanito');
+// 
+console.log(`Nombre en la instancia1 es: ${instancia1.joc}, ${instancia1.jugador}`)
+// console.log(`Nombre en la instancia2 es: ${instancia2.joc}, ${instancia1.jugador}`)
 
 
-
-// files.forEach(file => {
-// });
-
-
-
-// readFile(join(inbox, file), "utf8", (error, data) => {
-//     if (error) return console.log("Error: File error");
-// });
-
-
-// writeFile(join(outbox, file), reverseText(data), error => {
-//     if (error) return console.log("Error: File could not be saved!");
-//     console.log(`${file} was successfully saved in the outbox!`);
-// });
+module.exports = Marcador;

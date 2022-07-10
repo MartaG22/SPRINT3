@@ -7,4 +7,6 @@ class Joc {
     constructor(nomJoc) {
         this.nomJoc = nomJoc;
     }
-}
+};
+
+module.exports = Joc;
