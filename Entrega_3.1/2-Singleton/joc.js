@@ -18,10 +18,12 @@ class Joc {
     }
     
 
-    afegirJugadorAlJoc(){
-        this.jugadors.push(this.jugador);
+    afegirJugadorAlJoc(jugador) {
+        console.log('jugador a joc', jugador);
+        this.jugadors.push(jugador);
 
-    }
+    }        
+
 
 };
 // console.log(jugador)

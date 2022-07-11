@@ -26,13 +26,14 @@ const jugador6 = new Jugador("Inés");
 const jugador7 = new Jugador("Andreu");
 const jugador8 = new Jugador("Juan");
 
-const jugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8];
+const arrayJugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8];
 
 
-// Afegim jugadors als jocs:
+// // Afegim jugadors als jocs:
 
-let jugadorAJoc = jugadors[5]
-jocs[2].afegirJugadorAlJoc(jugadors[jugadorAJoc]);
+let jugadorAJoc = arrayJugadors[5];
+console.log('jugador a joc ¿app?', jugadorAJoc);
+jocs[2].afegirJugadorAlJoc(jugadorAJoc);
 
 
 // function afegirJuagadorAlJoc(){
@@ -40,9 +41,9 @@ jocs[2].afegirJugadorAlJoc(jugadors[jugadorAJoc]);
 
 // };
 
-
+console.log("NOM JUGADOR:" + jocs[2].jugadors[0].nomJugador)
 console.log(jocs);
-console.log(jugadors);
+console.log(arrayJugadors);
 
 
 
