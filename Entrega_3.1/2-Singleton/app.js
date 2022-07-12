@@ -29,11 +29,20 @@ const jugador8 = new Jugador("Juan");
 const arrayJugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8];
 
 
-// // Afegim jugadors als jocs:
+// Afegim jugadors als jocs:
 
-let jugadorAJoc = arrayJugadors[5];
-console.log('jugador a joc ¿app?', jugadorAJoc);
-jocs[2].afegirJugadorAlJoc(jugadorAJoc);
+// let jugadorAJoc = arrayJugadors[5];
+// console.log('jugador a joc ¿app?', jugadorAJoc);
+// jocs[2].afegirJugadorAlJoc(jugadorAJoc);
+
+
+jocs[0].afegirJugadorAlJoc(arrayJugadors[0], arrayJugadors[1], arrayJugadors[2], arrayJugadors[5]);
+jocs[1].afegirJugadorAlJoc(arrayJugadors[4], arrayJugadors[5], arrayJugadors[6], arrayJugadors[1]);
+jocs[2].afegirJugadorAlJoc(arrayJugadors[7], arrayJugadors[0], arrayJugadors[6], arrayJugadors[3]);
+jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4], arrayJugadors[7]);
+
+
+
 
 
 // function afegirJuagadorAlJoc(){
@@ -41,9 +50,9 @@ jocs[2].afegirJugadorAlJoc(jugadorAJoc);
 
 // };
 
-console.log("NOM JUGADOR:" + jocs[2].jugadors[0].nomJugador)
-console.log(jocs);
-console.log(arrayJugadors);
+// console.log("NOM JUGADORS:" + jocs[0].jugadors[0].nomJugador, jocs[0].jugadors[1].nomJugador)
+// console.log(jocs);
+// console.log(arrayJugadors);
 
 
 

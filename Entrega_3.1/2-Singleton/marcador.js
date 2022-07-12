@@ -21,6 +21,20 @@ class Marcador {
         this.punts = 0;
     }
 
+    afegirPunts(){
+
+
+    }
+
+    intentarMarcarPunto(jugador) {
+        let num = Math.random();
+        if (num > 0.50) {
+            console.log(`Punto del jugador ${jugador.nombre} del equipo ${jugador.equipo}`);
+            this.marcador.anadirPunto(jugador.equipo);
+        }
+    }
+
+
 
 }
 
