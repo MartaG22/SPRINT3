@@ -1,7 +1,9 @@
 // const Jugador = require("./jugador.js");
+const marcador = require("../../../TERORIA Y COSAS/S3/ECORBERO_Singleton/Marcador.js");
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
-const Marcador = require("./marcador.js");
+const { mostrarMarcador } = require("./marcador.js");
+// const Marcador = require("./marcador.js");
 
 
 // Afegim jocs:
@@ -24,7 +26,7 @@ const jugador4 = new Jugador("Ramón");
 const jugador5 = new Jugador("Maricarmen");
 const jugador6 = new Jugador("Inés");
 const jugador7 = new Jugador("Andreu");
-const jugador8 = new Jugador("Juan");
+const jugador8 = new Jugador("Antonio");
 
 const arrayJugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador6, jugador7, jugador8];
 
@@ -41,24 +43,53 @@ jocs[1].afegirJugadorAlJoc(arrayJugadors[4], arrayJugadors[5], arrayJugadors[6],
 jocs[2].afegirJugadorAlJoc(arrayJugadors[7], arrayJugadors[0], arrayJugadors[6], arrayJugadors[3]);
 jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4], arrayJugadors[7]);
 
-function canviarPuntuacio() {
-    let quantitatJugadors = arrayJugadors.length;
-    let puntsPelJugador = parseInt(Math.random() * quantitatJugadors);
-    console.log(puntsPelJugador, arrayJugadors[puntsPelJugador].nomJugador);
-}
 
-function punts() {
+
+
+function modificarPunts() {
+    let punts = 0;
     let restarSumarPunts = parseInt(Math.random() * 2);
     console.log(restarSumarPunts);
+    //TODO PASAR A OPERADOR TERNARIO:
     if (restarSumarPunts == 0) {
         //restar
+        punts = -2;
     } else {
         //sumar
-
-
+        punts = 2;
     }
-
+    return punts;
 }
+
+
+
+function JugadorACanviarPunts() {
+    let i = 0;
+    let puntsJugadorJoc;
+    for (i = 0; i <= 20; i++) {
+        jocs.forEach(joc => {
+            // console.log(joc);
+            let puntsAModificar = 0;
+
+            let quantitatJugadors = joc.jugadors.length;
+            let posicioJugador = parseInt(Math.random() * quantitatJugadors);
+            // console.log("JOC:", jocs[i].nomJoc, "NumJugador:", puntsPelJugador, jocs[i].jugadors[puntsPelJugador].nomJugador);
+            puntsAModificar = modificarPunts()
+            console.log("marcador a jocs:", joc.jugadors[posicioJugador].nomJugador, "punts a Modificar:", puntsAModificar);
+            puntsJugadorJoc = joc.jugadors[posicioJugador].punts + puntsAModificar;
+            console.log("marcador-joc:", puntsJugadorJoc);
+            // console.log("marcador", marcador);
+            console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", marcador", puntsJugadorJoc);
+
+            // marcador.jocs[nomJoc][index].Punts += punts;
+
+            i++;
+
+        });
+    };
+    // marcador.mostrarMarcador(jocs[0].jugadors[0]);
+}
+
 
 
 // intentarMarcarPunto(jugador) {
@@ -71,8 +102,8 @@ function punts() {
 // }
 
 
-canviarPuntuacio();
-punts();
+JugadorACanviarPunts();
+modificarPunts();
 
 // function afegirJuagadorAlJoc(){
 //     for

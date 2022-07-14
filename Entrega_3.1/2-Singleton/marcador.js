@@ -9,7 +9,7 @@ class Marcador {
     static instancia;
     nom = '';
 
-    constructor(joc, jugador) {
+    constructor(joc, jugador, punts) {
 
         if (!!Marcador.instancia) {
             return Marcador.instancia;
@@ -18,8 +18,32 @@ class Marcador {
         Marcador.instancia = this;
         this.joc = joc;
         this.jugador = jugador;
-        this.punts = 0;
+        this.punts = punts;
     }
+
+    mostrarMarcador () {
+        this.equipos.sort( (a, b) => b.puntos - a.puntos );
+        let posicion = 0;
+        let ultimosPuntos = 0;
+        const consoleColor = '\x1b[36m%s\x1b[0m';
+
+        console.log(consoleColor,"### CLASIFICACIÓN ###")
+
+        for (let equipo of this.equipos) {
+            if (equipo.puntos !== ultimosPuntos) {
+                posicion++;
+            }
+            console.log(consoleColor,`${posicion}. ${equipo.equipo} (${equipo.puntos} puntos)`);
+            //console.log("holi: ", equipo.puntos, ultimosPuntos);
+            
+            ultimosPuntos = equipo.puntos;            
+        }
+
+        //console.table(this.equipos);
+
+        console.log("#####################");
+    }
+
 
     // afegirPunts(){
     //     const jugadorsLenght = arrayJugadors.lenght
@@ -47,4 +71,5 @@ class Marcador {
 // // console.log(`Nombre en la instancia2 es: ${instancia2.joc}, ${instancia1.jugador}`)
 
 
-module.exports = Marcador;
+module.exports = new Marcador();
+// module.exports = Marcador();
