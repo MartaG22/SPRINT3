@@ -41,9 +41,38 @@ jocs[1].afegirJugadorAlJoc(arrayJugadors[4], arrayJugadors[5], arrayJugadors[6],
 jocs[2].afegirJugadorAlJoc(arrayJugadors[7], arrayJugadors[0], arrayJugadors[6], arrayJugadors[3]);
 jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4], arrayJugadors[7]);
 
+function canviarPuntuacio() {
+    let quantitatJugadors = arrayJugadors.length;
+    let puntsPelJugador = parseInt(Math.random() * quantitatJugadors);
+    console.log(puntsPelJugador, arrayJugadors[puntsPelJugador].nomJugador);
+}
+
+function punts() {
+    let restarSumarPunts = parseInt(Math.random() * 2);
+    console.log(restarSumarPunts);
+    if (restarSumarPunts == 0) {
+        //restar
+    } else {
+        //sumar
 
 
+    }
 
+}
+
+
+// intentarMarcarPunto(jugador) {
+
+//     let num = Math.random();
+//     if (num > 0.50) {
+//         console.log(`Punto del jugador ${jugador.nombre} del equipo ${jugador.equipo}`);
+//         this.marcador.anadirPunto(jugador.equipo);
+//     }
+// }
+
+
+canviarPuntuacio();
+punts();
 
 // function afegirJuagadorAlJoc(){
 //     for
