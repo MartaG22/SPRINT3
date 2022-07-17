@@ -1,12 +1,9 @@
-// const Jugador = require("./jugador.js");
-// const marcador = require("../../../TERORIA Y COSAS/S3/ECORBERO_Singleton/Marcador.js");
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
 const marcador = require("./marcador.js");
 
 
 // Afegim jocs:
-
 const joc1 = new Joc('Set i Mig');
 const joc2 = new Joc('Remigio');
 const joc3 = new Joc('Parxís');
@@ -17,7 +14,6 @@ const jocs = [joc1, joc2, joc3, joc4];
 
 
 // Afegim jugadors:
-
 const jugador1 = new Jugador("Pepito");
 const jugador2 = new Jugador("María");
 const jugador3 = new Jugador("Juanito");
@@ -31,12 +27,6 @@ const arrayJugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador
 
 
 // Afegim jugadors als jocs:
-
-// let jugadorAJoc = arrayJugadors[5];
-// console.log('jugador a joc ¿app?', jugadorAJoc);
-// jocs[2].afegirJugadorAlJoc(jugadorAJoc);
-
-
 jocs[0].afegirJugadorAlJoc(arrayJugadors[0], arrayJugadors[1], arrayJugadors[2], arrayJugadors[5]);
 jocs[1].afegirJugadorAlJoc(arrayJugadors[4], arrayJugadors[5], arrayJugadors[6], arrayJugadors[1]);
 jocs[2].afegirJugadorAlJoc(arrayJugadors[7], arrayJugadors[0], arrayJugadors[6], arrayJugadors[3]);
@@ -46,15 +36,9 @@ jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4],
 function modificarPunts() {
     let punts = 0;
     let restarSumarPunts = parseInt(Math.random() * 2);
-    console.log(restarSumarPunts);
-    //TODO PASAR A OPERADOR TERNARIO:
-    if (restarSumarPunts == 0) {
-        //restar
-        punts = -2;
-    } else {
-        //sumar
-        punts = 3;
-    }
+    // console.log(restarSumarPunts);
+
+    (restarSumarPunts == 0) ? punts = -2 : punts = 3;       // Si restarSumarPunts = 0 --> RESTEM 2 PUNTS // Si Si restarSumarPunts = 1 --> SUMEM 3 PUNTS
     return punts;
 }
 
@@ -62,7 +46,7 @@ function modificarPunts() {
 function JugadorACanviarPunts() {
     let i = 0;
     let puntsJugadorJoc;
-    for (i = 0; i <= 20; i++) {
+    for (i = 0; i <= 10; i++) {     // 10 rondes de jocs
         jocs.forEach(joc => {
 
             let puntsAModificar = 0;
@@ -70,7 +54,7 @@ function JugadorACanviarPunts() {
             let posicioJugador = parseInt(Math.random() * quantitatJugadors);
 
             puntsAModificar = modificarPunts()
-            console.log("marcador a jocs:", joc.jugadors[posicioJugador].nomJugador, "punts a Modificar:", puntsAModificar);
+            // console.log("marcador a jocs:", joc.jugadors[posicioJugador].nomJugador, "punts a Modificar:", puntsAModificar);
             joc.jugadors[posicioJugador].punts += puntsAModificar;
             puntsJugadorJoc = joc.jugadors[posicioJugador].punts;
             console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", punts:", puntsJugadorJoc);
@@ -79,12 +63,14 @@ function JugadorACanviarPunts() {
                 joc.jugadors[posicioJugador].punts = 0;
             };
 
-            console.log("marcador-joc:", puntsJugadorJoc);
-            console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", punts:", puntsJugadorJoc);
+            // console.log("marcador-joc:", puntsJugadorJoc);
+            // console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", punts:", puntsJugadorJoc);
 
 
         });
     };
+    // return console.log(`S'han tret ${puntsTrets} punts a ${jugador.nom}.`);
+    // return console.log(`S'han pujat ${puntsAfegits} punts a ${jugador.nom}.`);
 
 }
 
@@ -96,55 +82,42 @@ function mostrarResultats() {
     arrayJugadors.forEach(jugador => {
         marcador.mostrarPunts(jugador);
     });
-    // marcador.mostrarGuanyador(arrayJugadors);
+    marcador.mostrarGuanyador(arrayJugadors);
 };
 
-function mostrarGuanyador() {
-    let quantitatJugadors = arrayJugadors.length;
-    let guanyador;
-    let trobat;
-    let i = 0;
-    let puntsUltimJugador = 0;
-    let arrayJugadorsOrdenatPerPunts = [];
-    for (i = 0; i < quantitatJugadors; i++) {
-        // console.log(`posició jugador actual: ${i} /// punts: ${arrayJugadors[i].punts}`)
+// function mostrarGuanyador() {
+//     let quantitatJugadors = arrayJugadors.length;
+//     let guanyador;
+//     let trobat;
+//     let i = 0;
+//     let puntsUltimJugador = 0;
+//     let arrayJugadorsOrdenatPerPunts = [];
+//     for (i = 0; i < quantitatJugadors; i++) {
+//         // console.log(`posició jugador actual: ${i} /// punts: ${arrayJugadors[i].punts}`)
 
-        let jugadorActual = arrayJugadors[i];
-        let puntsJugadorActual = arrayJugadors[i].punts;
+//         let jugadorActual = arrayJugadors[i];
+//         let puntsJugadorActual = arrayJugadors[i].punts;
 
-        if (puntsJugadorActual >= puntsUltimJugador) {
-            console.log(`posició jugador actual: ${i} /// punts: ${arrayJugadors[i].punts}`)
-            puntsUltimJugador = puntsJugadorActual;
-            guanyador = jugadorActual;
-            console.log(jugadorActual)
-            // i = quantitatJugadors;
-            // let puntsJugadorActual = arrayJugadors[i].punts;
-            // if (puntsJugadorActual >= puntsUltimJugador)
-            //     arrayJugadorsOrdenatPerPunts.push(puntsJugadorActual)
-            // console.log("punts guanyador:", puntsJugadorActual);
-        }
+//         if (puntsJugadorActual >= puntsUltimJugador) {
+//             console.log(`posició jugador actual: ${i} /// punts: ${arrayJugadors[i].punts}`)
+//             puntsUltimJugador = puntsJugadorActual;
+//             guanyador = jugadorActual;
+//             console.log(jugadorActual)
+//             // i = quantitatJugadors;
+//             // let puntsJugadorActual = arrayJugadors[i].punts;
+//             // if (puntsJugadorActual >= puntsUltimJugador)
+//             //     arrayJugadorsOrdenatPerPunts.push(puntsJugadorActual)
+//             // console.log("punts guanyador:", puntsJugadorActual);
+//         }
 
-    }
-    console.log("guanyador:", guanyador);
-}
-    // console.log("adiooos", arrayJugadors);
-    // let guanyador = (parseInt(Math.max(arrayJugadors.punts))); 
-    // // do {
-    // //     trobat = (((Math.max(arrayJugadors.punts))));
-    // //     // puntsJugadorJoc = joc.jugadors[posicioJugador].punts;
-    // //     if (trobat === -1) {
-    // //         guanyadorTrobat = true;
-    // //     }
-    // //     // i++
-    // //     // let indice = arreglo.indexOf(busqueda);
-    // // } while (!guanyadorTrobat);
-    // console.log("guanyador:", guanyador);
+//     }
+//     console.log("guanyador:", guanyador);
+// }
 
 
 JugadorACanviarPunts();
 modificarPunts();
 mostrarResultats();
-mostrarGuanyador();
 
 
 

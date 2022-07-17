@@ -26,42 +26,47 @@ class Marcador {
         console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
     };
 
+    // mostrarGuanyador(jugadors) {
+    //     // console.log("hika")
+    //     // this.punts.sort((a, b) => b.puntos - a.puntos);
+    //     // let guanyador = jugadors.Math.max(jugadors.punts);
+    //     console.log(jugadors);
+    //     // let indice = arreglo.indexOf(busqueda);
+    // }
+
+
+
     mostrarGuanyador(jugadors) {
-        // console.log("hika")
-        // this.punts.sort((a, b) => b.puntos - a.puntos);
-        // let guanyador = jugadors.Math.max(jugadors.punts);
-        console.log(jugadors);
-        // let indice = arreglo.indexOf(busqueda);
+        let quantitatJugadors = jugadors.length;
+        let guanyador;
+        let i = 0;
+        let puntsUltimJugador = 0;
+        let arrayJugadorsOrdenatPerPunts = [];
+        let jugadorActual;
+        let puntsJugadorActual;
+
+        for (i = 0; i < quantitatJugadors; i++) {
+
+            jugadorActual = jugadors[i];
+            puntsJugadorActual = jugadors[i].punts;
+
+            if (puntsJugadorActual >= puntsUltimJugador) {
+                // console.log(`posició jugador actual: ${i} /// punts: ${jugadors[i].punts}`)
+                puntsUltimJugador = puntsJugadorActual;
+                guanyador = jugadorActual;
+                // console.log(jugadorActual)
+                // i = quantitatJugadors;
+                // let puntsJugadorActual = arrayJugadors[i].punts;
+                // if (puntsJugadorActual >= puntsUltimJugador)
+                //     arrayJugadorsOrdenatPerPunts.push(puntsJugadorActual)
+                // console.log("punts guanyador:", puntsJugadorActual);
+            }
+
+        }
+        console.log(`\n***>>>   EL GUANYADOR HA SIGUT:  ${jugadorActual.nomJugador} amb ${puntsUltimJugador} punts`);
     }
 
 }
-
-// console.log(`Jugadors afegits al joc *** ${ this.nomJoc } *** << ${ this.jugadors[0].nomJugador } >> * << ${ this.jugadors[1].nomJugador } >> * << ${ this.jugadors[2].nomJugador } >> * << ${ this.jugadors[3].nomJugador } >>`);
-
-// mostrarMarcador () {
-//     this.equipos.sort( (a, b) => b.puntos - a.puntos );
-//     let posicion = 0;
-//     let ultimosPuntos = 0;
-//     const consoleColor = '\x1b[36m%s\x1b[0m';
-
-//     console.log(consoleColor,"### CLASIFICACIÓN ###")
-
-//     for (let equipo of this.equipos) {
-//         if (equipo.puntos !== ultimosPuntos) {
-//             posicion++;
-//         }
-//         console.log(consoleColor,`${ posicion }.${ equipo.equipo }(${ equipo.puntos } puntos)`);
-//         //console.log("holi: ", equipo.puntos, ultimosPuntos);
-
-//         ultimosPuntos = equipo.puntos;
-//     }
-
-//     //console.table(this.equipos);
-
-//     console.log("#####################");
-// }
-
-
 
 
 
