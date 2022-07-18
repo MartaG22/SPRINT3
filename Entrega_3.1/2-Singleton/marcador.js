@@ -41,7 +41,6 @@ class Marcador {
         let guanyador;
         let i = 0;
         let puntsUltimJugador = 0;
-        let arrayJugadorsOrdenatPerPunts = [];
         let jugadorActual;
         let puntsJugadorActual;
 
@@ -63,7 +62,7 @@ class Marcador {
             }
 
         }
-        console.log(`\n***>>>   EL GUANYADOR HA SIGUT:  ${jugadorActual.nomJugador} amb ${puntsUltimJugador} punts`);
+        console.log(`\n<<<***>>>   EL GUANYADOR HA SIGUT:  ${guanyador.nomJugador} amb ${puntsUltimJugador} punts  <<<***>>>`);
     }
 
 }
@@ -72,4 +71,3 @@ class Marcador {
 
 
 module.exports = new Marcador();
-// module.exports = Marcador();

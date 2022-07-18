@@ -42,11 +42,53 @@ function modificarPunts() {
     return punts;
 }
 
-
+//!Afegits 22 punts al joc Remigio del jugador undefined
 function JugadorACanviarPunts() {
     let i = 0;
     let puntsJugadorJoc;
-    for (i = 0; i <= 10; i++) {     // 10 rondes de jocs
+    for (i = 0; i < 10; i++) {     // 10 rondes de jocs
+        let ronda = i+1;
+        console.log(`\nRONDA ${ronda}: `);
+        jocs.forEach(joc => {
+
+            let puntsAModificar = 0;
+            let quantitatJugadors = joc.jugadors.length;
+            let posicioJugador = parseInt(Math.random() * quantitatJugadors);
+
+            let missatge;
+            puntsAModificar = modificarPunts()
+            if (puntsAModificar > 0) {
+                missatge = `S'han sumat ${puntsAModificar} punts`
+            } else {
+                missatge = `S'han restat ${-puntsAModificar} punts`
+            }
+
+
+            // console.log("marcador a jocs:", joc.jugadors[posicioJugador].nomJugador, "punts a Modificar:", puntsAModificar);
+            joc.jugadors[posicioJugador].punts += puntsAModificar;
+            puntsJugadorJoc = joc.jugadors[posicioJugador].punts;
+            // console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", punts:", puntsJugadorJoc);
+            console.log(` JOC: ${joc.nomJoc} ==>> ${missatge} al jugador ${joc.jugadors[posicioJugador].nomJugador}`);
+
+            if (puntsJugadorJoc < 0) {
+                joc.jugadors[posicioJugador].punts = 0;
+            };
+
+            // console.log("marcador-joc:", puntsJugadorJoc);
+            // console.log("JOC:", joc.nomJoc, "NumJugador:", posicioJugador, joc.jugadors[posicioJugador].nomJugador, ", punts:", puntsJugadorJoc);
+
+
+        });
+    };
+    // return console.log(`S'han tret ${puntsTrets} punts a ${jugador.nom}.`);
+    // return console.log(`S'han pujat ${puntsAfegits} punts a ${jugador.nom}.`);
+
+}
+
+/*function JugadorACanviarPunts() {
+    let i = 0;
+    let puntsJugadorJoc;
+    for (i = 0; i < 10; i++) {     // 10 rondes de jocs
         jocs.forEach(joc => {
 
             let puntsAModificar = 0;
@@ -72,13 +114,12 @@ function JugadorACanviarPunts() {
     // return console.log(`S'han tret ${puntsTrets} punts a ${jugador.nom}.`);
     // return console.log(`S'han pujat ${puntsAfegits} punts a ${jugador.nom}.`);
 
-}
-
+}*/
 
 
 
 function mostrarResultats() {
-    console.log("PUNTS DE CADA JUGADOR:")
+    console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
     arrayJugadors.forEach(jugador => {
         marcador.mostrarPunts(jugador);
     });

@@ -25,6 +25,7 @@ module.exports = Jugador;
             let puntsAModificar = 0;
             let quantitatJugadors = joc.jugadors.length;
             let posicioJugador = parseInt(Math.random() * quantitatJugadors);
+
             let missatge;
             puntsAModificar = modificarPunts()
             if (puntsAModificar > 0) {
