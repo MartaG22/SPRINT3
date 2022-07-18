@@ -36,18 +36,16 @@ jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4],
 function modificarPunts() {
     let punts = 0;
     let restarSumarPunts = parseInt(Math.random() * 2);
-    // console.log(restarSumarPunts);
 
     (restarSumarPunts == 0) ? punts = -2 : punts = 3;       // Si restarSumarPunts = 0 --> RESTEM 2 PUNTS // Si Si restarSumarPunts = 1 --> SUMEM 3 PUNTS
     return punts;
 }
 
-//!Afegits 22 punts al joc Remigio del jugador undefined
 function JugadorACanviarPunts() {
     let i = 0;
     let puntsJugadorJoc;
     for (i = 0; i < 10; i++) {     // 10 rondes de jocs
-        let ronda = i+1;
+        let ronda = i + 1;
         console.log(`\nRONDA ${ronda}: `);
         jocs.forEach(joc => {
 
@@ -62,7 +60,6 @@ function JugadorACanviarPunts() {
             } else {
                 missatge = `S'han restat ${-puntsAModificar} punts`
             }
-
 
             // console.log("marcador a jocs:", joc.jugadors[posicioJugador].nomJugador, "punts a Modificar:", puntsAModificar);
             joc.jugadors[posicioJugador].punts += puntsAModificar;

@@ -26,15 +26,6 @@ class Marcador {
         console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
     };
 
-    // mostrarGuanyador(jugadors) {
-    //     // console.log("hika")
-    //     // this.punts.sort((a, b) => b.puntos - a.puntos);
-    //     // let guanyador = jugadors.Math.max(jugadors.punts);
-    //     console.log(jugadors);
-    //     // let indice = arreglo.indexOf(busqueda);
-    // }
-
-
 
     mostrarGuanyador(jugadors) {
         let quantitatJugadors = jugadors.length;
@@ -50,24 +41,14 @@ class Marcador {
             puntsJugadorActual = jugadors[i].punts;
 
             if (puntsJugadorActual >= puntsUltimJugador) {
-                // console.log(`posició jugador actual: ${i} /// punts: ${jugadors[i].punts}`)
                 puntsUltimJugador = puntsJugadorActual;
                 guanyador = jugadorActual;
-                // console.log(jugadorActual)
-                // i = quantitatJugadors;
-                // let puntsJugadorActual = arrayJugadors[i].punts;
-                // if (puntsJugadorActual >= puntsUltimJugador)
-                //     arrayJugadorsOrdenatPerPunts.push(puntsJugadorActual)
-                // console.log("punts guanyador:", puntsJugadorActual);
             }
-
         }
         console.log(`\n<<<***>>>   EL GUANYADOR HA SIGUT:  ${guanyador.nomJugador} amb ${puntsUltimJugador} punts  <<<***>>>`);
     }
 
 }
-
-
 
 
 module.exports = new Marcador();
