@@ -1,20 +1,13 @@
-// youtube.com/watch?v=Z7Z-PJEIEs  singletton
-
-// https://www.freecodecamp.org/espanol/news/40-proyectos-de-javascript-para-principiantes-ideas-faciles-para-empezar-a-codificar-en-js/
-
 // PATRÓN SINGLETON:
-
 
 class Marcador {
     static instancia;
     nom = '';
 
     constructor(joc, jugador, punts) {
-
         if (!!Marcador.instancia) {
             return Marcador.instancia;
         }
-
         Marcador.instancia = this;
         this.joc = joc;
         this.jugador = jugador;
@@ -26,7 +19,7 @@ class Marcador {
         console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
     };
 
-
+    
     mostrarGuanyador(jugadors) {
         let quantitatJugadors = jugadors.length;
         let guanyador;
@@ -47,8 +40,6 @@ class Marcador {
         }
         console.log(`\n<<<***>>>   EL GUANYADOR HA SIGUT:  ${guanyador.nomJugador} amb ${puntsUltimJugador} punts  <<<***>>>`);
     }
-
 }
-
 
 module.exports = new Marcador();
