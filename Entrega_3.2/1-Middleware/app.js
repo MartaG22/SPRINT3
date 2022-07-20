@@ -8,3 +8,9 @@ https://www.iteramos.com/pregunta/16631/nodejs-que-es-res-y-req-en-expressjs
 
 https://www.youtube.com/watch?v=rA6Fgm7FL9E
 https://www.youtube.com/watch?v=j5UBvJhLA-k */
+
+
+// !DEVELOPERS TEAM:
+
+// https://www.youtube.com/watch?v=2mEdCSpfOHI
+// https://www.youtube.com/watch?v=B2ZJ2N1-iNI  - DAVID ESPANADERO
