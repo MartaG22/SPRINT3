@@ -1,0 +1,19 @@
+{
+    "personas":[
+        {
+            "apellidos": "Vereau Garijo",
+            "nombre": "Gerard",
+            "edad": 14
+        },
+        {
+            "apellidos": "Vereau Rodríguez",
+            "nombre": "Manuel",
+            "edad": 54
+        },
+        {
+            "apellidos": "Vereau Garijo",
+            "nombre": "Berta",
+            "edad": 9
+        }
+    ]
+}
