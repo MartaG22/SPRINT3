@@ -25,6 +25,16 @@ https://www.codingame.com/start
 // https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON
 // https://www.youtube.com/watch?v=Y2FpY61h5Z8  //! JSON ___ MUY BIEN EXPLICADO
 
+
+
+
+// https://www.youtube.com/watch?v=qQjALhIEM3A
+
+
+// https://docs.microsoft.com/es-es/shows/beginners-series-to-nodejs/
+
+// https://www.tabnine.com/code/javascript/functions/fs/promises
+
 // ! EXPLICACIÓN DE OMAR DEL MIDDLEWARE:
 
 calc = new Calc();
