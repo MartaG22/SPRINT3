@@ -2,10 +2,10 @@
 
 class Middleware {
     constructor(data) {
-        this.middleware = [];
+        this.data = [];
     }
     use(fn) {
-        this.middleware.push(fn);
+        this.data.push(fn);
     }
 }
 
