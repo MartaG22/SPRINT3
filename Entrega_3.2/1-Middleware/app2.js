@@ -15,51 +15,42 @@ console.log(nombres);
 function operacions(a, b) {
 
     let resultatSumar = a + b;
-    
+
     let resultatRestar = a - b;
     let resultatMultiplicar = a * b;
     console.log(`El resultat de sumar ${a} més ${b} és ${resultatSumar}`);
     console.log(`El resultat de restar ${a} menys ${b} és ${resultatRestar}`);
     console.log(`El resultat de multiplicar ${a} per ${b} és ${resultatMultiplicar}`);
-    // middleware.use(quadrat(a, b));
+
+
+
+    middleware.data[0](a, b);
     // middleware.use(cub(a, b));
     // middleware.use(meitat(a, b));
+
 
     // middleware.use(cub(a, b));
     // middleware.use(meitat(a, b));
     // console.log("data", middleware.data[0]);
     // console.log("JSON", middleware.data[0]);
 
-    let resultQuadrat = [];
-    resultQuadrat = middleware.use(quadrat(a, b));
-    console.log("resultat del quadrat", resultQuadrat)
+    let resultQuadrat = middleware.data[0];
     let resultSumaQuadrat = resultQuadrat[0] + resultQuadrat[1]
     console.log(`El resultat de SUMAR el QUADRAT de ${a} per ${b} és ${resultSumaQuadrat}`);
 
-    // // let resultQuadrat = middleware.data[0];
-    // let resultRestarQuadrat = resultQuadrat[0] + resultQuadrat[1]
-    // console.log(`El resultat de RESTAR el QUADRAT de ${a} per ${b} és ${resultRestarQuadrat}`);
-
-    // // let resultQuadrat = middleware.data[0];
-    // let resultMultiplicarQuadrat = resultQuadrat[0] + resultQuadrat[1]
-    // console.log(`El resultat de MULTIPLICAR el QUADRAT de ${a} per ${b} és ${resultMultiplicarQuadrat}`);
 
 
+    let resultCub = middleware.data[0];
+    let resultRestaQuadrat = resultCub[0] - resultCub[1]
+    console.log(`El resultat de RESTAR el CUB de ${a} per ${b} és ${resultRestaQuadrat}`);
 
 
-    // let resultCub = middleware.data[0];
-    // let resultRestaQuadrat = resultCub[0] - resultCub[1]
-    // console.log(`El resultat de RESTAR el CUB de ${a} per ${b} és ${resultRestaQuadrat}`);
-
-
-    // let resultMeitat = middleware.data[0];
-    // let resultMeitatQuadrat = resultMeitat[0] / resultMeitat[1]
-    // console.log(`El resultat de DIVIDIR la MEITAT de ${a} per ${b} és ${resultMeitatQuadrat}`);
-    // console.log(middleware)
-
+    let resultMeitat = middleware.data[0];
+    let resultMeitatQuadrat = resultMeitat[0] / resultMeitat[1]
+    console.log(`El resultat de DIVIDIR la MEITAT de ${a} per ${b} és ${resultMeitatQuadrat}`);
+    console.log(middleware)
 }
 
-// const middleware = new Middleware(operacions);
 
 function quadrat(a, b) {
     let resultQuadratNum1 = a * a;
@@ -67,8 +58,8 @@ function quadrat(a, b) {
     console.log(resultQuadratNum1, resultQuadratNum2);
     let quadrats = [resultQuadratNum1, resultQuadratNum2]
     // res.send((resultQuadratNum1, resultQuadratNum2));
-    console.log("quadrats", quadrats);
     return (quadrats);
+
 };
 
 
@@ -77,8 +68,6 @@ function cub(a, b) {
     let resultCubNum2 = b * b * b;
     console.log(resultCubNum1, resultCubNum2);
     let cubs = [resultCubNum1, resultCubNum2]
-
-
     return (cubs);
 
     // res.send((resultQuadratNum1, resultQuadratNum2));
@@ -106,6 +95,11 @@ middleware.use(cub);
 middleware.use(meitat);
 
 
+// middleware.use(quadrat);
+// middleware.use(cub);
+// middleware.use(meitat);
+
+
 // function sumar(a, b) {
 //     let resultatSumar = a + b;
 //     return resultatSumar;
@@ -122,4 +116,5 @@ middleware.use(meitat);
 // }
 
 operacions(nombres.num1, nombres.num2);
+// operacions(nombres.num1, nombres.num2);
 // middleware.use(nombres.num1, nombres.num2);
