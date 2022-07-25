@@ -21,28 +21,27 @@ function operacions(a, b) {
     console.log(`El resultat de sumar ${a} més ${b} és ${resultatSumar}`);
     console.log(`El resultat de restar ${a} menys ${b} és ${resultatRestar}`);
     console.log(`El resultat de multiplicar ${a} per ${b} és ${resultatMultiplicar}`);
-    // middleware.use(quadrat(a, b));
-    // middleware.use(cub(a, b));
-    // middleware.use(meitat(a, b));
+    middleware.use(quadrat(a, b));
+    middleware.use(cub(a, b));
+    middleware.use(meitat(a, b));
 
     // middleware.use(cub(a, b));
     // middleware.use(meitat(a, b));
     // console.log("data", middleware.data[0]);
     // console.log("JSON", middleware.data[0]);
 
-    let resultQuadrat = [];
-    resultQuadrat = middleware.use(quadrat(a, b));
-    console.log("resultat del quadrat", resultQuadrat)
+    let resultQuadrat = middleware.data[0];
+
     let resultSumaQuadrat = resultQuadrat[0] + resultQuadrat[1]
     console.log(`El resultat de SUMAR el QUADRAT de ${a} per ${b} és ${resultSumaQuadrat}`);
 
-    // // let resultQuadrat = middleware.data[0];
-    // let resultRestarQuadrat = resultQuadrat[0] + resultQuadrat[1]
-    // console.log(`El resultat de RESTAR el QUADRAT de ${a} per ${b} és ${resultRestarQuadrat}`);
+    // let resultQuadrat = middleware.data[0];
+    let resultRestarQuadrat = resultQuadrat[0] + resultQuadrat[1]
+    console.log(`El resultat de RESTAR el QUADRAT de ${a} per ${b} és ${resultRestarQuadrat}`);
 
-    // // let resultQuadrat = middleware.data[0];
-    // let resultMultiplicarQuadrat = resultQuadrat[0] + resultQuadrat[1]
-    // console.log(`El resultat de MULTIPLICAR el QUADRAT de ${a} per ${b} és ${resultMultiplicarQuadrat}`);
+    // let resultQuadrat = middleware.data[0];
+    let resultMultiplicarQuadrat = resultQuadrat[0] + resultQuadrat[1]
+    console.log(`El resultat de MULTIPLICAR el QUADRAT de ${a} per ${b} és ${resultMultiplicarQuadrat}`);
 
 
 
@@ -67,8 +66,8 @@ function quadrat(a, b) {
     console.log(resultQuadratNum1, resultQuadratNum2);
     let quadrats = [resultQuadratNum1, resultQuadratNum2]
     // res.send((resultQuadratNum1, resultQuadratNum2));
-    console.log("quadrats", quadrats);
     return (quadrats);
+    // return 
 };
 
 
