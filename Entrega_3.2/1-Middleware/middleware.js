@@ -3,7 +3,6 @@
 class Middleware {
     constructor(funcions) {
         this.funcions = [];
-        // this.resultatOperacio = [];
     }
     pasarNumeros(numeros){
         this.numeros = [];
