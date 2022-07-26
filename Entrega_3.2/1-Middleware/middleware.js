@@ -1,11 +1,15 @@
 // - Crea en un fitxer extern una classe que emmagatzemi middlewares (funcions).
 
 class Middleware {
-    constructor(data) {
-        this.data = [];
+    constructor(funcions) {
+        this.funcions = [];
+        // this.resultatOperacio = [];
+    }
+    pasarNumeros(numeros){
+        this.numeros = numeros;
     }
     use(fn) {
-        this.data.push(fn);
+        this.funcions.push(fn);
     }
 }
 
