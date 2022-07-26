@@ -20,9 +20,9 @@ function operacions(a, b) {
     console.log(`El resultat de sumar ${a} més ${b} és ${resultatSumar}`);
     console.log(`El resultat de restar ${a} menys ${b} és ${resultatRestar}`);
     console.log(`El resultat de multiplicar ${a} per ${b} és ${resultatMultiplicar}`);
-    let resultQuadrat = quadrat(a, b);
-    let resultCub = cub(a, b);
-    let resultMeitat = meitat(a, b);
+    let resultQuadrat = middleware.funcions[0](a, b);
+    let resultCub = middleware.funcions[1](a, b);
+    let resultMeitat = middleware.funcions[2](a, b);
 
     // middleware.pasarNumeros(cub(a, b));
     // middleware.pasarNumeros(meitat(a, b));
@@ -48,6 +48,7 @@ function operacions(a, b) {
     console.log(`El resultat de MULTIPLICAR el QUADRAT de ${a} per ${b} és ${resultMultiplicarQuadrat}`);
 
 
+
     // Resultats amb els CUBS:
     console.log("Resultats dels Cubs: ", resultCub);
     let resultSumarCubs = resultCub[0] + resultCub[1];
@@ -62,18 +63,19 @@ function operacions(a, b) {
     console.log(`El resultat de MULTIPLICAR el CUBS de ${a} per ${b} és ${resultMultiplicarCubs}`);
 
 
+
     // Resultats amb els MEITATS:
     console.log("Resultats de les Meitats: ", resultMeitat);
     let resultSumarMeitats = resultMeitat[0] + resultMeitat[1];
-    console.log(`El resultat de SUMAR el CUBS de ${a} per ${b} és ${resultSumarMeitats}`);
+    console.log(`El resultat de SUMAR les MEITATS de ${a} per ${b} és ${resultSumarMeitats}`);
 
     // let resultQuadrat = middleware.data[0];
     let resultRestarMeitats = resultMeitat[0] - resultMeitat[1];
-    console.log(`El resultat de RESTAR el CUBS de ${a} per ${b} és ${resultRestarMeitats}`);
+    console.log(`El resultat de RESTAR les MEITATS de ${a} per ${b} és ${resultRestarMeitats}`);
 
     // let resultQuadrat = middleware.data[0];
     let resultMultiplicarMeitats = resultMeitat[0] * resultMeitat[1];
-    console.log(`El resultat de MULTIPLICAR el CUBS de ${a} per ${b} és ${resultMultiplicarMeitats}`);
+    console.log(`El resultat de MULTIPLICAR les MEITATS de ${a} per ${b} és ${resultMultiplicarMeitats}`);
 
 
     console.log(middleware)

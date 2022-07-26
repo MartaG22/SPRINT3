@@ -6,7 +6,7 @@ class Middleware {
         // this.resultatOperacio = [];
     }
     pasarNumeros(numeros){
-        this.numeros = numeros;
+        this.numeros = [];
     }
     use(fn) {
         this.funcions.push(fn);
