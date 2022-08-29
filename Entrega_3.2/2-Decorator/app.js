@@ -5,207 +5,25 @@
 
 
 // https://mauriciogc.medium.com/javascript-patrones-de-dise%C3%B1o-en-js-estructurales-parte-ii-79b87905cefe
+// https://blog.logrocket.com/understanding-javascript-decorators/#:~:text=A%20decorator%20(also%20known%20as,treated%20as%20first%2Dclass%20citizens.
+
+const Producte = require("./producte.js");
+const conversioDivisa = require("./decorator.js")
 
 
+// let producte = new Producte();
 
-class Hamburger {
-    constructor() {
-        this._drescription = "Unknown Hamburger";
-        this._price = 0;
-    }
-    set price(price) {
-        this._price = price;
-    }
-    get price() {
-        return this._price;
-    }
-    get drescription() {
-        return this._drescription;
-    }
-    getHamburger() {
-        return `You order is: ${this.description} and the price ${this.price}`;
-    }
-}
-
-export default Hamburger;
+// Creem productes:
+let producte1 = new Producte('Portàtil Acer Swift XSFX14', 1099, "USD");
+let producte2 = new Producte('Portàtil Apple MacBook Pro 15"', 1049, "GBP");
+let producte3 = new Producte('Portàtil Acer Predator Gaming i7 - 15.6"', 186102, "JPY"); //+++
+let producte4 = new Producte('Portàtil Lenovo Yoga 7 i7, 15.6"', 1032, "CHF");
+let producte5 = new Producte('Portàtil Lenovo Yoga Slim 9 i7, 14"', 2271, "AUD");
+let producte6 = new Producte('Portàtil CHUWI HeroBook Pro 14.1"', 1826.95, "CNY"); 
+let producte7 = new Producte('Portàtil HP Omen 16 Gaming 16.1" i7', 1749.99, "CAD");
+let producte8 = new Producte('Portàtil LG Gram 15Z95P Laptop 15.6"', 71386.11, "RUB"); 
 
 
+console.log(producte1, producte2);
+conversioDivisa(producte3)
 
-
-
-import Hamburger from "./Hamburguer";
-class CheeseBurger extends Hamburger {
-  constructor(){
-    super();
-    this.description = 'Cheeseburger';
-    this.price = 100;
-  }
-}
-
-export default CheeseBurger;
-
-
-
-
-
-import Hamburger from "./Hamburguer";
-
-class BaconDoubleBurger extends Hamburger {
-  constructor() {
-    super();
-    this.description = "Bacon Double Burger";
-    this.price = 110;
-  }
-}
-export default BaconDoubleBurger;
-
-
-
-
-import Hamburger from "./Hamburguer";
-
-class WesternBurger extends Hamburger {
-  constructor(){
-    super();
-    this.description = 'Western Burger';
-    this.price = 105;
-  }
-}
-export default WesternBurger;
-
-
-
-
-// El siguiente paso es generar el super decorador HamburgerDecorator:
-import Hamburger from "./Hamburguer";
-
-class HamburgerDecorator extends Hamburger {
-  constructor(burger) {
-    super();
-    this.burger = burger;
-  }
-}
-export default HamburgerDecorator;
-
-
-
-
-
-// Por último generamos cada uno de los decoradores:
-import HamburgerDecorator from "./HamburgerDecorator";
-
-class BaconDecorator extends HamburgerDecorator {
-  constructor(burger) {
-    super(burger);
-  }
-  get description() {
-    return this.burger.description + " with bacon";
-  }
-  get price() {
-    return this.burger.price + 9;
-  }
-}
-
-class HamDecorator extends HamburgerDecorator {
-  get description() {
-    return this.burger.description + " with ham";
-  }
-  get price() {
-    return this.burger.price + 15;
-  }
-}
-
-class MeatDecorator extends HamburgerDecorator {
-  constructor(burger) {
-    super(burger);
-  }
-  get description() {
-    return this.burger.description + " with meat";
-  }
-  get price() {
-    return this.burger.price + 20;
-  }
-}
-
-class EggDecorator extends HamburgerDecorator {
-  constructor(burger) {
-    super(burger);
-  }
-  get description() {
-    return this.burger.description + " with egg";
-  }
-  get price() {
-    return this.burger.price + 12;
-  }
-}
-
-class PickleDecorator extends HamburgerDecorator {
-  constructor(burger) {
-    super(burger);
-  }
-  get description() {
-    return this.burger.description + " with pickle";
-  }
-  get price() {
-    return this.burger.price + 5;
-  }
-}
-
-class CheeseDecorator extends HamburgerDecorator {
-  constructor(burger) {
-    super(burger);
-  }
-  get description() {
-    return this.burger.description + " with cheese";
-  }
-  get price() {
-    return this.burger.price + 9;
-  }
-}
-
-export {
-  CheeseDecorator,
-  BaconDecorator,
-  EggDecorator,
-  HamDecorator,
-  MeatDecorator,
-  PickleDecorator
-};
-
-
-
-// Veamos cómo se instancia:
-import CheeseBurger from "./CheeseBurger";
-import { HamDecorator, BaconDecorator } from "./groupDecorators";
-
-const cheeseBurger = new CheeseBurger();
-const cheeseBurgerWithHam = new HamDecorator(cheeseBurger);
-const cheeseBurgerWithHamAndBacon = new BaconDecorator(cheeseBurgerWithHam);
-
-console.log(cheeseBurger.getHamburger());
-//output You order is: Cheeseburger and the price 100
-console.log(cheeseBurgerWithHam.getHamburger());
-//output You order is: Cheeseburger with ham and the price 115
-console.log(cheeseBurgerWithHamAndBacon.getHamburger());
-//output You order is: Cheeseburger with ham with bacon and the price 124
-
-
-
-
-
-
-
-
-
-// class Enemy {
-//     constructor(number){
-//         this.number =number;
-//     }
-//     computeDamage(receivedAttack);
-// }
-
-// class ConcreteEnemy extends Enemy{
-//     computeDamage(receivedAttack): number {
-//         console.log
-//     }
-// }
