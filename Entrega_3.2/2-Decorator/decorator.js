@@ -1,41 +1,43 @@
-// const data = require("./divises.json")
 const fs = require("fs");
-// const taulaFactorsConversio = JSON.parse(fs.data);
+const readDivises = fs.readFileSync("./divises.json");
+const taulaFactorsConversio = JSON.parse(readDivises);
+
 // console.log("taula", taulaFactorsConversio)
-// (__dirname + "/currency_conversions.json"));
 
 
-let readDivises = fs.readFileSync("./divises.json");
-let taulaFactorsConversio = JSON.parse(readDivises);
-// console.log(taulaFactorsConversio);
-console.log("taula", taulaFactorsConversio)
-
-
-// let taulaFactorsConversio = JSON.parse(fs.readFileSync(data, 'utf8'));
 function conversioDivisa(producte) {
+    let divisaInicial = "";
+    let conversioDivisaInical = "";
+    let factorConversio = 0;
+    let conversioPreuEUR = 0;
 
-
-    let divisaInicial = producte.divisa;
-    let conversioDivisaInical = divisaInicial + "_EUR";
-    console.log("divisa inicial:", conversioDivisaInical);
-    // let coeficientConversio = data.find(divisaInicial);
-    // console.log("coeficient:", coeficientConversio)
+    divisaInicial = producte.divisa;
+    conversioDivisaInical = divisaInicial + "_EUR";
+    // console.log("divisa inicial:", conversioDivisaInical);
+    // // let coeficientConversio = data.find(divisaInicial);
+    // // console.log("coeficient:", coeficientConversio)
     const preuDivisaInicial = producte.preu;
-    console.log("preu:", preuDivisaInicial, ", divisa inicial:", divisaInicial)
-    console.log("producte", producte);
+    // console.log("preu:", preuDivisaInicial, ", divisa inicial:", divisaInicial)
+    // console.log("producte", producte);
 
 
-    let factorConversio = taulaFactorsConversio[conversioDivisaInical];
-    // let factorConversio =     JSON.parse(conversioDivisaInical)
+    factorConversio = taulaFactorsConversio[conversioDivisaInical];
+    // // let factorConversio =     JSON.parse(conversioDivisaInical)
 
-    // taulaFactorsConversio
+    // // taulaFactorsConversio
 
-    console.log("taula", taulaFactorsConversio)
-    console.log("factor:", factorConversio)
-    //Falta ver como encontrar el valor en el JSON para acabar de hacer la conversión!!!
-    console.log("factor conversió:", factorConversio);
-    let conversioPreuEUR = (preuDivisaInicial * factorConversio).toFixed(2);
-    console.log("conversio preu:", conversioPreuEUR)
+    // console.log("taula", taulaFactorsConversio)
+    // console.log("factor:", factorConversio)
+    // //Falta ver como encontrar el valor en el JSON para acabar de hacer la conversión!!!
+    // console.log("factor conversió:", factorConversio);
+    conversioPreuEUR = (producte.preu * factorConversio).toFixed(2);
+    // console.log("conversio preu:", conversioPreuEUR)
+    // number.toLocaleString()
+    console.log(`Coversió de ${divisaInicial} a EUR:`);
+
+    console.log(`\n El producte: ${producte.nomProducte} amb un preu de ${preuDivisaInicial} ${divisaInicial} costarà ${conversioPreuEUR} EUR\n`);
+
+
 };
 
 

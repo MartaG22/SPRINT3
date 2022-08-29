@@ -14,16 +14,33 @@ const conversioDivisa = require("./decorator.js")
 // let producte = new Producte();
 
 // Creem productes:
-let producte1 = new Producte('Portàtil Acer Swift XSFX14', 1099, "USD");
-let producte2 = new Producte('Portàtil Apple MacBook Pro 15"', 1049, "GBP");
-let producte3 = new Producte('Portàtil Acer Predator Gaming i7 - 15.6"', 186102, "JPY"); //+++
-let producte4 = new Producte('Portàtil Lenovo Yoga 7 i7, 15.6"', 1032, "CHF");
-let producte5 = new Producte('Portàtil Lenovo Yoga Slim 9 i7, 14"', 2271, "AUD");
-let producte6 = new Producte('Portàtil CHUWI HeroBook Pro 14.1"', 1826.95, "CNY"); 
-let producte7 = new Producte('Portàtil HP Omen 16 Gaming 16.1" i7', 1749.99, "CAD");
-let producte8 = new Producte('Portàtil LG Gram 15Z95P Laptop 15.6"', 71386.11, "RUB"); 
+const producte1 = new Producte('Portàtil Acer Swift XSFX14', 1099, "USD");
+const producte2 = new Producte('Portàtil Apple MacBook Pro 15"', 1049, "GBP");
+const producte3 = new Producte('Portàtil Acer Predator Gaming i7 - 15.6"', 186102, "JPY"); 
+const producte4 = new Producte('Portàtil Lenovo Yoga 7 i7, 15.6"', 1032, "CHF");
+const producte5 = new Producte('Portàtil Lenovo Yoga Slim 9 i7, 14"', 2271, "AUD");
+const producte6 = new Producte('Portàtil CHUWI HeroBook Pro 14.1"', 1826.95, "CNY"); 
+const producte7 = new Producte('Portàtil HP Omen 16 Gaming 16.1" i7', 1749.99, "CAD");
+const producte8 = new Producte('Portàtil LG Gram 15Z95P Laptop 15.6"', 71386.11, "RUB"); 
 
 
-console.log(producte1, producte2);
-conversioDivisa(producte3)
+conversioDivisa(producte1);
+conversioDivisa(producte2);
+conversioDivisa(producte3);
+conversioDivisa(producte4);
+conversioDivisa(producte5);
+conversioDivisa(producte6);
+conversioDivisa(producte7);
+conversioDivisa(producte8);
 
+
+// function showConversion(){
+//     for (let i=1; i<=8; i++){
+//         let showProducte = "producte"+i;
+//         console.log("producte:",showProducte)
+//         conversioDivisa(showProducte)
+
+//     }
+// };
+
+// showConversion(showProducte)
