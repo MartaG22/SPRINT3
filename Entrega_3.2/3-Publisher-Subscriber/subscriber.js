@@ -1,35 +1,30 @@
 const amqp = require('amqplib/callback_api');
 
-class Subscriber {
-    consturctor(cua,servidor) {
-        this.cua = cua;
-        this.servidor = servidor;
 
-    };
-
-    rebreMissatge() {
-        amqp.connect(this.servidor, (error0, connexio) => {
-            if (error0) {
-                throw error0;
-            }
-
-            connexio.createChannel((error1, canal) => {
-                if (error1) {
-                    throw error1;
-                };
-                canal.assertQueue(this.cua, {
-                    durable: false
-                });
-
-                console.log(`CLIENT > Rebent missatge del Publisher => ${this.cua}`);
-
-                canal.consume(this.cua, (missatge) => {
-                    console.log(this.cua)
-                    console.log (`CLIENT > Rebut missatge => ${missatge.content.toString()}`);
-                })
-            })
-        })
+amqp.connect('amqp://localhost', (error0, connexio) => {
+    if (error0) {
+        throw error0;
     }
-};
 
-module.exports = Subscriber;
+    connexio.createChannel((error1, canal) => {
+        if (error1) {
+            throw error1;
+        };
+
+        const cua = 'PEPITO';
+
+        canal.assertQueue(cua, {
+            durable: false
+        });
+
+        console.log(`CLIENT > Rebent missatge del Publisher => ${cua}`);
+
+        canal.consume(cua, (missatge) => {
+            // console.log(cua)
+            console.log(`CLIENT > Rebut missatge => ${missatge.content.toString()}`);
+        })
+    })
+})
+
+
+// module.exports = Subscriber;
