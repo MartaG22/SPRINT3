@@ -20,11 +20,7 @@ amqp.connect('amqp://localhost', (error0, connexio) => {
         console.log(`CLIENT > Rebent missatge del Publisher => ${cua}`);
 
         canal.consume(cua, (missatge) => {
-            // console.log(cua)
             console.log(`CLIENT > Rebut missatge => ${missatge.content.toString()}`);
         })
     })
 })
-
-
-// module.exports = Subscriber;

@@ -6,11 +6,11 @@
 // https://stackfull.dev/design-patterns-in-javascript-publish-subscribe-or-pubsub-1
 
 
-// ==> npm install amqplib
+// ==> npm install amqplib  ==> Per instal·lar el mòdul amqp
 
 
 // https://www.youtube.com/watch?v=jmxsswls0jk&t=259s
-//! https://jackfiallos.com/comunicando-microservicios-en-nodejs-usando-rabbitmq-y-amqplib
+// https://jackfiallos.com/comunicando-microservicios-en-nodejs-usando-rabbitmq-y-amqplib
 
 
 const amqp = require('amqplib/callback_api');
@@ -25,14 +25,22 @@ amqp.connect('amqp://localhost', (error0, connexio) => {
         }
 
         const cua = "PEPITO";
-        const message = `Hola! \nAquest és el primer missatge de ${cua}`;
+        const missatges = [
+            `Hola! \nAquest és el primer missatge de ${cua}`,
+            'Aquest és el segon missatge',
+            'Aquest és el tercer missatge',
+            "Aquest és el quart missatge i l'últim!!!"
+        ];
 
         canal.assertQueue(cua, {
             durable: false
         });
 
-        canal.sendToQueue(cua, Buffer.from(message));
-        console.log(`SERVER > Sent > ${message}`);
+        let count = missatges.length;
+        let nombreRandom = Math.floor(Math.random() * count);
+
+        canal.sendToQueue(cua, Buffer.from(missatges[nombreRandom]));
+        console.log(`SERVER > Sent > ${missatges[nombreRandom]}`);
 
     });
 
@@ -41,38 +49,3 @@ amqp.connect('amqp://localhost', (error0, connexio) => {
         process.exit(0)
     }, 500);
 });
-
-
-
-/* publisher = new Publisher("PEPITO", "amqp://localhost")
-publisher.enviarMissatge("Holi");
-setTimeout(() => publisher.enviarMissatge("de"));
-setTimeout(() => publisher.enviarMissatge("Kiwi")); */
-
-
-
-//     enviarMissatge(message)  {
-//         amqp.connect('amqp:localhost', function(error) {
-//             if (error) {
-//                 throw error;
-//             }
-//             connection.createChannel(function (error, canal) {
-//                 if (error) {
-//                     throw error;
-//                 }
-
-//                 // let cua = 'hola';
-
-//                 canal.assertQueue(this.cua, {
-//                     durable: false
-//                 });
-
-//                 canal.sendToQueue(this.cua, Buffer.from(message));
-//                 console.log(`SERVER > Sent > ${msg}`);
-
-//             });
-//         });
-//     };
-// };
-
-// module.exports = Publisher;
