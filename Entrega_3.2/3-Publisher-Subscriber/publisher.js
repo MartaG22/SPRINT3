@@ -27,9 +27,9 @@ amqp.connect('amqp://localhost', (error0, connexio) => {
         const cua = "PEPITO";
         const missatges = [
             `Hola! \nAquest és el primer missatge de ${cua}`,
-            'Aquest és el segon missatge',
-            'Aquest és el tercer missatge',
-            "Aquest és el quart missatge i l'últim!!!"
+            'Aquest és el segon missatge de la llista!',
+            'Aquest és un altre missatge',
+            `Aquest és el quart missatge i l'últim de la cua ${cua}!!!`
         ];
 
         canal.assertQueue(cua, {
