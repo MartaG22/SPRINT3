@@ -1,4 +1,5 @@
 // PATRÓN SINGLETON:
+const Jugador = require("./jugador.js");
 
 class Marcador {
     static instancia;
@@ -10,13 +11,13 @@ class Marcador {
         }
         Marcador.instancia = this;
         this.joc = joc;
-        this.jugador = jugador;
-        this.punts = punts;
+        this.jugador = jugador;     
+        this.punts = 0;
     }
 
-
+    
     mostrarPunts(jugador) {
-        console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
+                console.log(`Jugador: ${Marcador.Jugador}    <<<*****>>>    Punts totals: ${Marcador.punts}`);
     };
 
     
