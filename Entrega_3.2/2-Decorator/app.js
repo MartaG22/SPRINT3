@@ -23,14 +23,12 @@ const producte8 = new Producte('Portàtil LG Gram 15Z95P Laptop 15.6"', 71386.11
 
 const arrayProductes = [producte1, producte2, producte3, producte4, producte5, producte6, producte7, producte8];
 
-// arrayProductes.forEach(producte => 
-//     let preuEnEuros = conversioDivisa(producte))
 
-let quantitatProductes = arrayProductes.length;
-for (let i=0; i<quantitatProductes; i++) {
-    let producte = arrayProductes[i];
-    let preuEnEuros =conversioDivisa(producte);
-    console.log("preu",preuEnEuros)
+(function convertirDivisa() {
+    arrayProductes.forEach(async producte => {
+        let producteDecorat = await conversioDivisa(producte)
+        console.log(`Coversió de ${producte.divisa} a EUR:`);
+        console.log(`\n El producte: ${producte.nomProducte} amb un preu de ${producte.preu} ${producte.divisa} costarà ${producteDecorat.preuEuros} EUR\n`);
 
-    }
-// arrayProductes.forEach((producte) => 
+    })
+})();
