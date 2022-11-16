@@ -3,7 +3,8 @@ const readDivises = fs.readFileSync("./divises.json");
 const taulaFactorsConversio = JSON.parse(readDivises);
 const ProducteDecorat = require('./producteDecorat.js')
 
-function conversioDivisa(producte, ) {
+function conversioDivisa(producte) {
+    console.log("producte en DECORATOR:", producte)
     let divisaInicial = "";
     let conversioDivisaInical = "";
     let factorConversio = 0;
