@@ -9,15 +9,14 @@ const marcador = require("./marcador.js");
 // const Marcador = require("./marcador.js");
 
 
-// // const joc1 = new Joc ({joc: {nomJoc: 'Set i Mig'}});
+// Afegim jocs:
 const joc1 = new Joc('Set i Mig');
 const joc2 = new Joc('Remigio');
 const joc3 = new Joc('Parxís');
 const joc4 = new Joc('Dòmino');
 
-const arrayJocs = [joc1, joc2, joc3, joc4];
-        // this.joc.jugadors.push({jugadors: [jugador1, jugador2, jugador3, jugador4]})
-// console.log( "ARRAYJOCS:", arrayJocs)
+const jocs = [joc1, joc2, joc3, joc4];
+
 
 
 // Afegim jugadors:
@@ -34,11 +33,10 @@ const arrayJugadors = [jugador1, jugador2, jugador3, jugador4, jugador5, jugador
 
 
 // Afegim jugadors als jocs:
-arrayJocs[0].afegirJugadorAlJoc(jugador1, jugador2, jugador3, jugador6, arrayJocs[0].nomJoc);
-arrayJocs[1].afegirJugadorAlJoc(jugador5, jugador6, jugador7, jugador2, arrayJocs[1].nomJoc);
-arrayJocs[2].afegirJugadorAlJoc(jugador8, jugador1, jugador7, jugador4, arrayJocs[2].nomJoc);
-arrayJocs[3].afegirJugadorAlJoc(jugador3, jugador4, jugador5, jugador8, arrayJocs[3].nomJoc);
-// console.log("arrayJocs 0", arrayJocs[0])
+jocs[0].afegirJugadorAlJoc(arrayJugadors[0], arrayJugadors[1], arrayJugadors[2], arrayJugadors[5]);
+jocs[1].afegirJugadorAlJoc(arrayJugadors[4], arrayJugadors[5], arrayJugadors[6], arrayJugadors[1]);
+jocs[2].afegirJugadorAlJoc(arrayJugadors[7], arrayJugadors[0], arrayJugadors[6], arrayJugadors[3]);
+jocs[3].afegirJugadorAlJoc(arrayJugadors[2], arrayJugadors[3], arrayJugadors[4], arrayJugadors[7]);
 
 
 // function modificarPunts() {
@@ -49,23 +47,19 @@ arrayJocs[3].afegirJugadorAlJoc(jugador3, jugador4, jugador5, jugador8, arrayJoc
 //     return punts;
 // }
 
-(function inciarJoc() {
+(function modificarPunts() {
     let i = 0;
     let puntsJugadorJoc;
     // let marcador = new Marcador;
-    for (i = 0; i < 8; i++) {     // 10 rondes de jocs
+    for (i = 0; i < 10; i++) {     // 10 rondes de jocs
         let ronda = i + 1;
         console.log(`\nRONDA ${ronda}: `);
-        arrayJocs.forEach(joc => {
-            // console.log("JOCC:", joc)
+        jocs.forEach(joc => {
+            console.log("JOCC:", joc)
             let puntsAModificar = 0;
             let quantitatJugadors = joc.jugadors.length;
             let posicioJugador = parseInt(Math.random() * quantitatJugadors);
-            // console.log("JUGADOR A MODIFICAR PUNTS:", joc.jugadors[posicioJugador])  //? DESCOMENTAR LUEGO
-            let indexJoc = arrayJocs.indexOf(joc);
-            // console.log('joc', joc, 'index', indexJoc)
-
-            joc.canviarPuntsJoc(indexJoc, posicioJugador)
+            joc.canviarPuntsJoc(joc[i],posicioJugador)
 
             //             let missatge;
             //             puntsAModificar = modificarPunts()
@@ -86,11 +80,10 @@ arrayJocs[3].afegirJugadorAlJoc(jugador3, jugador4, jugador5, jugador8, arrayJoc
 
         });
     };
-    // console.log("marcador en app",marcador)
+    console.log("marcador en app",marcador)
 })();
 
 
-  //? COMENTADO DE MOMENTO
 function mostrarResultats() {
     console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
     arrayJugadors.forEach(jugador => {
@@ -102,4 +95,4 @@ function mostrarResultats() {
 
 
 // Joc.canviarPunts;
-mostrarResultats();   //? COMENTADO DE MOMENTO
+mostrarResultats();

@@ -1,25 +1,23 @@
 // PATRÓN SINGLETON:
-const Jugador = require("./jugador.js");
 
 class Marcador {
     static instancia;
     nom = '';
 
-    constructor(nomJoc, jugador, punts) {
+    constructor(joc, jugador, punts) {
         if (!!Marcador.instancia) {
             return Marcador.instancia;
         }
         Marcador.instancia = this;
-        this.joc = {
-            nomJoc,
-            jugadors: [jugador, punts]
-        }
+        this.joc = joc;
+        this.jugador = jugador;
+        this.punts = punts;
     }
 
-    //! ESTA PARTE ES LA QUE TIENE QUE  (TIENE IR EN JOC I GUARDATS AL MARCADOR)
+
     mostrarPunts(jugador) {
-                console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
-    }
+        console.log(`Jugador: ${jugador.nomJugador}    <<<*****>>>    Punts totals: ${jugador.punts}`);
+    };
 
     
     mostrarGuanyador(jugadors) {
