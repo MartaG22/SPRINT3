@@ -25,7 +25,8 @@ class Joc {
     this.jugadors.push(jugador1, jugador2, jugador3, jugador4);
     marcador.joc = nouJoc;
     marcador.jugadors = this.jugadors;
-    this.jugadors.forEach((jugador) => {    // Inicialitzem el marcador de cada jugador a 0 punts.
+    this.jugadors.forEach((jugador) => {
+      // Inicialitzem el marcador de cada jugador a 0 punts.
       jugador.punts = 0;
     });
     // marcador.jugadors[0].punts = 0
@@ -64,24 +65,39 @@ class Joc {
     // console.log('mmaarrccaaddoorr', marcador)
     // console.log("Holaaaaaaaaaaaaaa!!! JOC:", joc)
     // console.log("Holaaaaaaaaaaaaaa!!! MARCADOR:", marcador)
-    console.log("A ver si consigo que me salga INDEX JOC", indexJoc)
+    console.log("A ver si consigo que me salga INDEX JOC", indexJoc);
     //! aquí es donde hay que modificar para que los puntos vayan al jugador que quiero
     this.jugadors[posicioJugador].punts += puntsAModificar;
     // console.log(" AQUI!!!  Marcador.punts", marcador.punts)
     // console.log("AQUI!!!   Marcador.punts", marcador.jugadors)
-    
+
     // let puntsJugadorJoc = marcador.punts;
     let puntsJugadorJoc = this.jugadors[posicioJugador].punts;
     // console.log(puntsJugadorJoc)
-    console.log(` JOC: ${this.nomJoc} ==>> ${missatge} al jugador ${this.jugadors[posicioJugador].nomJugador}`);
-    console.log("marcador joc:", this.nomJoc, this.jugadors)           
+    console.log(
+      ` JOC: ${this.nomJoc} ==>> ${missatge} al jugador ${this.jugadors[posicioJugador].nomJugador}`
+    );
+    console.log("marcador joc:", this.nomJoc, this.jugadors);
 
     if (puntsJugadorJoc < 0) {
       // marcador.punts = 0;
       this.jugadors[posicioJugador].punts = 0;
     }
   }
+
+  //? COMENTADO DE MOMENTO
+  mostrarResultats() {
+    console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
+    arrayJugadors.forEach((jugador) => {
+      console.log(jugador);
+      marcador.mostrarPunts(jugador);
+    });
+    marcador.mostrarGuanyador(arrayJugadors);
+  }
 }
+
+// Joc.canviarPunts;
+// mostrarResultats();   //? COMENTADO DE MOMENTO
 
 // marcador.jugadors[1].punts = 0
 
