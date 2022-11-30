@@ -5,6 +5,7 @@
 
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
+const joc = require("./marcador.js");
 const marcador = require("./marcador.js");
 // const Marcador = require("./marcador.js");
 
@@ -65,7 +66,8 @@ arrayJocs[3].afegirJugadorAlJoc(jugador3, jugador4, jugador5, jugador8, arrayJoc
             let indexJoc = arrayJocs.indexOf(joc);
             // console.log('joc', joc, 'index', indexJoc)
 
-            joc.canviarPuntsJoc(indexJoc, posicioJugador)
+            joc.canviarPuntsJoc(indexJoc, posicioJugador);
+            joc.r
 
             //             let missatge;
             //             puntsAModificar = modificarPunts()
@@ -90,9 +92,10 @@ arrayJocs[3].afegirJugadorAlJoc(jugador3, jugador4, jugador5, jugador8, arrayJoc
 })();
 
 
-  //? COMENTADO DE MOMENTO
-function mostrarResultats() {
+  //? COMENTADO DE MOMENTO    //// probar poner los resultados en MARCADOR!!!
+  function mostrarResultats() {
     console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
+    // joc.resultats();
     arrayJugadors.forEach(jugador => {
         console.log(jugador)
         marcador.mostrarPunts(jugador);
@@ -101,5 +104,12 @@ function mostrarResultats() {
 };
 
 
+(function mostrarResultats() {
+    console.log("\nPUNTS TOTALS DE CADA JUGADOR:")
+    
+})
+
 // Joc.canviarPunts;
 mostrarResultats();   //? COMENTADO DE MOMENTO
+
+// joc.mostrarResultats(arrayJugadors)

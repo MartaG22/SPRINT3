@@ -82,18 +82,18 @@ class Joc {
     if (puntsJugadorJoc < 0) {
       // marcador.punts = 0;
       this.jugadors[posicioJugador].punts = 0;
-    }
-  }
+    };
+  };
 
-  //? COMENTADO DE MOMENTO
-  mostrarResultats() {
-    console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
-    arrayJugadors.forEach((jugador) => {
-      console.log(jugador);
-      marcador.mostrarPunts(jugador);
-    });
-    marcador.mostrarGuanyador(arrayJugadors);
-  }
+  // //? COMENTADO DE MOMENTO    //// probar poner los resultados en MARCADOR!!!
+  // resultats() {
+  //   // console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
+  //   this.jugadors.forEach((jugador) => {
+  //     console.log(jugador);
+  //     marcador.mostrarPunts(jugador);
+  //   });
+  //   marcador.mostrarGuanyador(this.jugadors);
+  // }
 }
 
 // Joc.canviarPunts;
