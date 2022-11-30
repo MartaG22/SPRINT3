@@ -1,13 +1,14 @@
 class Calculadora {
-    sumar({ num1, num2 }) {
-        return num1 + num2;
+    sumar({ a, b }) {
+        return a + b;
     };
-    restar({ num1, num2 }) {
-        return num1 - num2;
+    restar({ a, b }) {
+        return a - b;
     };
-    multiplicar({ num1, num2 }) {
-        return num1 * num2;
+    multiplicar({ a, b }) {
+        return a * b;
     };
 };
+
 
 module.exports = Calculadora;
