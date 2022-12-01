@@ -12,14 +12,9 @@ class Joc {
         this.jugadors.push(jugador1, jugador2, jugador3, jugador4);
         marcador.joc = nouJoc;
         marcador.jugadors = this.jugadors;
-        // this.jugadors.forEach((jugador) => {
-        //   // Inicialitzem el marcador de cada jugador a 0 punts.
-        //   console.log("jugado r en afegir jugador", jugador)
-        // jugador.punts = 0;
-        // });
+
         for (let i = 0; i < this.jugadors.length; i++) {
-            // Inicialitzem els marcadors a 0
-            marcador.jugadors[i].punts = 0;
+                        marcador.jugadors[i].punts = 0;      // Inicialitzem els marcadors a 0
         }
         // console.log("AQSWDEFRGTYHYJUIU;MNFd", marcador.joc, marcador.jugadors);
 
@@ -36,35 +31,37 @@ class Joc {
 
         let missatge;
         puntsAModificar = modificarPunts();
+        console.log('puntsAModificar', puntsAModificar,  "juador a Modifiacer", marcador.jugadors[posicioJugador]);     //! ME HE QUEDADO AQUÍ - COMPROBAR QUE EL JUGADOR ES EL QUE TIENE QUE SER
         if (puntsAModificar > 0) {
-            missatge = `S'han sumat ${puntsAModificar} punts`;
+          missatge = `S'han sumat ${puntsAModificar} punts`;
         } else {
-            missatge = `S'han restat ${-puntsAModificar} punts`;
+          missatge = `S'han restat ${-puntsAModificar} punts`;
         }
-
+        
         //! ESTA PARTE ES LA QUE TIENE QUE IR EN JOC I GUARDATS AL MARCADOR
         // console.log('mmaarrccaaddoorr', marcador)
         // console.log("Holaaaaaaaaaaaaaa!!! JOC:", joc)
         // console.log("Holaaaaaaaaaaaaaa!!! MARCADOR:", marcador)
         // console.log("A ver si consigo que me salga INDEX JOC", indexJoc);
         //! aquí es donde hay que modificar para que los puntos vayan al jugador que quiero
-
+        
         marcador.jugadors[posicioJugador].punts += puntsAModificar;
         // console.log("NUEVA PUNTUACIÓN:" ,marcador.jugadors[posicioJugador].punts)
-
+        
         // this.jugadors[posicioJugador].punts += puntsAModificar;
         // console.log(" AQUI!!!  Marcador.punts", marcador.punts)
         // console.log("AQUI!!!   Marcador.punts", marcador.jugadors)
-
+        
         // let puntsJugadorJoc = marcador.punts;
         // console.log(puntsJugadorJoc)
         console.log(
-            ` JOC: ${this.nomJoc} ==>> ${missatge} al jugador ${this.jugadors[posicioJugador].nomJugador}`
-        );
-        // console.log("marcador joc:", this.nomJoc, this.jugadors);
-
-        let puntsJugadorJoc = marcador.jugadors[posicioJugador].punts;
-        if (puntsJugadorJoc < 0) {
+          ` JOC: ${this.nomJoc} ==>> ${missatge} al jugador ${this.jugadors[posicioJugador].nomJugador}`
+          );
+          console.log('puntsAModificar', puntsAModificar,  "juador a Modifiacer", marcador.jugadors[posicioJugador]);  //! ME HE QUEDADO AQUÍ - COMPROBAR QUE EL JUGADOR ES EL QUE TIENE QUE SER
+          // console.log("marcador joc:", this.nomJoc, this.jugadors);
+          
+          let puntsJugadorJoc = marcador.jugadors[posicioJugador].punts;
+          if (puntsJugadorJoc < 0) {
             // marcador.punts = 0;
             marcador.jugadors[posicioJugador].punts = 0;
         }

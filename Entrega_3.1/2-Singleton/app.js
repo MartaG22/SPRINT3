@@ -4,8 +4,8 @@
 
 const Joc = require("./joc.js");
 const Jugador = require("./jugador.js");
-const joc = require("./marcador.js");
-const marcador = require("./marcador.js");
+// const joc = require("./marcador.js");
+// const marcador = require("./marcador.js");
 // const Marcador = require("./marcador.js");
 
 // // const joc1 = new Joc ({joc: {nomJoc: 'Set i Mig'}});
@@ -44,6 +44,7 @@ arrayJocs[3].afegirJugadorAlJoc (jugador3, jugador4, jugador5, jugador8, arrayJo
             // console.log("JOCC:", joc)
             let quantitatJugadors = joc.jugadors.length;
             let posicioJugador = parseInt(Math.random() * quantitatJugadors);
+            console.log("JOC   <<<<  ", joc.nomJoc, "  >>>>   JUGADOR A MODIFICAR PUNTS:", joc.jugadors[posicioJugador])  //? QUITAR  LUEGO
             // console.log("JUGADOR A MODIFICAR PUNTS:", joc.jugadors[posicioJugador])  //? DESCOMENTAR LUEGO
             let indexJoc = arrayJocs.indexOf(joc);
             // console.log('joc', joc, 'index', indexJoc)
@@ -51,6 +52,10 @@ arrayJocs[3].afegirJugadorAlJoc (jugador3, jugador4, jugador5, jugador8, arrayJo
             joc.canviarPuntsJoc(posicioJugador);
         });
     };
+
+    console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
+    joc1.resultats(arrayJugadors) ;
+
 })();
 
 // //? COMENTADO DE MOMENTO    //// probar poner los resultados en MARCADOR!!!
@@ -67,11 +72,11 @@ arrayJocs[3].afegirJugadorAlJoc (jugador3, jugador4, jugador5, jugador8, arrayJo
 
 
 
-function mostrarResultats() {
-    console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
-    joc1.resultats(arrayJugadors) ;
+// function mostrarResultats() {
+//     console.log("\nPUNTS TOTALS DE CADA JUGADOR:");
+//     joc1.resultats(arrayJugadors) ;
     
-}
+// }
 
 
-mostrarResultats(); //? COMENTADO DE MOMENTO
+// mostrarResultats(); //? COMENTADO DE MOMENTO
