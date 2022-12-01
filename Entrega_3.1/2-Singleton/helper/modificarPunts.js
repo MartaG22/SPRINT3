@@ -1,5 +1,5 @@
 function modificarPunts() {
-    console.log("!2342423423423")
+
     let punts = 0;
     let restarSumarPunts = parseInt(Math.random() * 2);
 
