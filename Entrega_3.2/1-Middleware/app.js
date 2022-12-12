@@ -1,52 +1,44 @@
-const fs = require('fs');
-const Calculadora = require('./calculadora.js');
-const Middleware = require('./middleware.js');
 
-let data = fs.readFileSync('./nombres.json');
-let nombres = JSON.parse(data);
-console.log(nombres);
-// console.log(nombres.num1);
+const Calculadora = require("./calculadora");
+const Middleware = require("./middleware")
+const dades = require("./nombres.json");
 
-const calculadora = new Calculadora;
-const middleware = new Middleware;
+// Calculadora inicial
+const calcul = new Calculadora()
+
+console.log("<<< VALORS INICIALS >>>"); 
+console.log(dades);
+
+console.log("\n<<<  CALCULADORA INICIAL  >>>");
+console.log(`Sumar  ${dades.a} i ${dades.b}  =  ${calcul.sumar(dades)}`)
+console.log(`Restar  ${dades.a} i ${dades.b}  =  ${calcul.restar(dades)}`)
+console.log(`Multiplicar  ${dades.a} i ${dades.b}  =  ${calcul.multiplicar(dades)}`)
 
 
-//!OMAR
-middleware.use((data, next) => {
-    data.num1 = data.num1 ** 2;
-    data.num2 = data.num2 ** 2;
-    
-    console.log( "sdaf",data.num1, data.num2);
+// INSTANCIEM MIDDLEWARE I PASSEM LES FUNCIONS
+const app = new Middleware(calcul);
+app.use((req, next) => {
+    req.a **= 2;
+    req.b **= 2;
+    console.log(`Primer Middleware -->> AL QUADRAT <<-->> Resultat:`, req);
+    next();
+});
+app.use((req, next) => {
+    req.a **= 3;
+    req.b **= 3;
+    console.log("Segón Middleware -->> AL CUB <<-->> Resultat:",  req);
+    next(); 
+});
+app.use((req, next)=>{
+    req.a /= 2;
+    req.b /= 2;
+    console.log("Tercer Middleware -->> MEITAT <<-->> Resultat:", req);
     next();
 });
 
-//! Els següents estan malament:
-middleware.use(calculadora.restar);
-middleware.use(calculadora.multiplicar);
 
-
-
-// middleware.use(funcions(nombres, next) {
-//     console.log(`El resultat de la suma és ${funcions(nombres)}`);
-
-// })
-
-
-
-// let quadratNum1 = nombres.num1 * nombres.num2;
-// let quadratNum2 = nombres.num2 * nombres.num2;
-// // console.log(nombres.num1,quadratNum1)
-// let quadratNombres = [quadratNum1, quadratNum2];
-// console.log(`Els nombres al quadrat: ${quadratNombres}`);
-
-middleware.run(calculadora.sumar, nombres)
-middleware.run(calculadora.restar, nombres)
-middleware.run(calculadora.multiplicar,nombres )
-
-
-
-console.log(`El resultat de la suma és ${calculadora.sumar(nombres)}`);
-console.log(`El resultat de la resta és ${calculadora.restar(nombres)}`);
-console.log(`El resultat de la multiplicació és ${calculadora.multiplicar(nombres)}`);
-console.log(middleware.funcio);
-middleware.use(nombres);
+//EXECUTEM ELS CÀLCULS AMB ELS MIDDLEWARES
+console.log("\n<<< OPERACIONS PASSANT PELS MIDDLEWARES >>>");
+console.log("-> SUMAR: ", app.sumar(dades), "\n");
+console.log("-> RESTAR: ", app.restar(dades),  "\n");
+console.log("-> MULTIPLICAR: ", app.multiplicar(dades),  "\n");

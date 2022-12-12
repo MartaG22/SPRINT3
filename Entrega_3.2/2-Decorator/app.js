@@ -5,10 +5,10 @@
 
 // https://mauriciogc.medium.com/javascript-patrones-de-dise%C3%B1o-en-js-estructurales-parte-ii-79b87905cefe
 // https://blog.logrocket.com/understanding-javascript-decorators/#:~:text=A%20decorator%20(also%20known%20as,treated%20as%20first%2Dclass%20citizens.
+// https://www.youtube.com/watch?v=LkOA07F9ZCs MIDUDEV
 
 const Producte = require("./producte.js");
 const conversioDivisa = require("./decorator.js");
-const { receiveMessageOnPort } = require("worker_threads");
 
 
 // Creem productes:
@@ -23,4 +23,12 @@ const producte8 = new Producte('Portàtil LG Gram 15Z95P Laptop 15.6"', 71386.11
 
 const arrayProductes = [producte1, producte2, producte3, producte4, producte5, producte6, producte7, producte8];
 
-arrayProductes.forEach(producte => conversioDivisa(producte))
+
+(function convertirDivisa() {
+    arrayProductes.forEach(async producte => {
+        let producteDecorat = await conversioDivisa(producte)
+        console.log(`Coversió de ${producte.divisa} a EUR:`);
+        console.log(`\n El producte: ${producte.nomProducte} amb un preu de ${producte.preu} ${producte.divisa} costarà ${producteDecorat.preuEuros} EUR\n`);
+
+    })
+})();

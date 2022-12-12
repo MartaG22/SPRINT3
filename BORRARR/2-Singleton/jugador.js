@@ -4,7 +4,7 @@ class Jugador {
     constructor(idJugador, nomJugador) {
         this.idJugador = idJugador;
         this.nomJugador = nomJugador;
-        // this.punts = 0;
+        this.punts = 0;
     };
 };
 
